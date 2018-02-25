@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tnh.myapplication.MainActivity">
+
+    <com.tnh.myapplication.mosaic.MosaicViewGroup
+        android:id="@+id/mMosaicViewGroup"
+        android:background="#cacaca"
+        android:layout_above="@+id/tool"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <RelativeLayout
+        android:id="@+id/tool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Size"/>
+
+        <SeekBar
+            android:id="@+id/mSeekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/size"
+            android:layout_alignTop="@+id/size"
+            android:layout_toRightOf="@+id/size"
+            android:max="100"/>
+
+        <Button
+            android:id="@+id/mClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/size"
+            android:layout_margin="4dp"
+            android:text="Clear"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/mClear"
+            android:layout_alignTop="@+id/mClear"
+            android:layout_below="@+id/size"
+            android:layout_margin="4dp"
+            android:layout_toRightOf="@+id/mClear">
+
+            <LinearLayout
+                android:id="@+id/mContainerMosaic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"/>
+
+        </HorizontalScrollView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
