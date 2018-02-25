@@ -140,14 +140,16 @@ public class MosaicView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
 
+        mBufferBitmap.eraseColor(Color.TRANSPARENT); // reset bitmap avoid cannot undo redo after bitmap render
+
         if (mBufferBitmap != null && mBufferCanvas != null) {
             for (MosaicHolder mh : mDrawList) {
-                canvas.drawPath(mh.mPath, mh.mPaint);
+                mBufferCanvas.drawPath(mh.mPath, mh.mPaint);
             }
 
-            canvas.drawPath(mPath, mPaint);
+            mBufferCanvas.drawPath(mPath, mPaint);
 
-//            canvas.drawBitmap(mBufferBitmap, 0, 0, mBufferPaint);
+            canvas.drawBitmap(mBufferBitmap, 0, 0, mBufferPaint);
         }
     }
 
